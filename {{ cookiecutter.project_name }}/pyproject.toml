@@ -1,6 +1,5 @@
 [project]
 name = "{{ cookiecutter.project_name }}"
-version = "0.0.1"
 description = "{{ cookiecutter.project_description }}"
 authors = [
     {name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.author_email }}"},
@@ -18,8 +17,11 @@ dependencies = [
 ]
 requires-python = ">=3.10,<3.11"
 license = {file = "LICENSE"}
+dynamic = ["version"]
 
 [tool.pdm]
+version = { source = "file", path = "{{ cookiecutter.project_name }}/__version__.py" }
+
 [tool.pdm.dev-dependencies]
 dev = [
     "pre-commit==2.20.0",
