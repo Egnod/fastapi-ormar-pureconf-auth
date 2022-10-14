@@ -71,7 +71,7 @@ exclude = '''
 '''
 
 [tool.isort]
-known_first_party = "{{ cookiecutter.project_name }}"
+known_first_party = "{{ cookiecutter.project.name }}"
 line_length = 120
 profile = "black"
 multi_line_output = 3

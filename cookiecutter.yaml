@@ -1,0 +1,8 @@
+project:
+  name: "Boilerplate"
+  slug: "boilerplate"
+  description: "Lorem ipsum dolor sit amet"
+
+author:
+  email: "lorem@ipsum.dolor"
+  name: "Lorem Ipsum"
