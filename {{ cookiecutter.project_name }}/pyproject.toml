@@ -1,9 +1,9 @@
 [project]
-name = "{{project_name}}"
+name = "{{ cookiecutter.project_name }}"
 version = "0.0.1"
-description = "{{project_description}}"
+description = "{{ cookiecutter.project_description }}"
 authors = [
-    {name = "{{author_name}}", email = "{{author_email}}"},
+    {name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.author_email }}"},
 ]
 dependencies = [
     "fastapi==0.85.0",
@@ -69,7 +69,7 @@ exclude = '''
 '''
 
 [tool.isort]
-known_first_party = "{{project_name}}"
+known_first_party = "{{ cookiecutter.project_name }}"
 line_length = 120
 profile = "black"
 multi_line_output = 3
@@ -98,7 +98,7 @@ disable_error_code = ["valid-type", "call-arg"]
 name = "cz_conventional_commits"
 version = "0.0.1"
 version_files = [
-    "{{project_name}}/__about__.py"
+    "{{ cookiecutter.project_name }}/__about__.py"
 ]
 style = [
     ["qmark", "fg:#ff9d00 bold"],
