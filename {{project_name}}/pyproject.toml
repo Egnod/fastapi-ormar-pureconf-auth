@@ -1,0 +1,126 @@
+[project]
+name = "{{project_name}}"
+version = "0.0.1"
+description = "{{project_description}}"
+authors = [
+    {name = "{{author_name}}", email = "{{author_email}}"},
+]
+dependencies = [
+    "fastapi==0.85.0",
+    "brotli-asgi==1.2.0",
+    "uvloop==0.17.0",
+    "wsproto==1.2.0",
+    "logzero==1.7.0",
+    "fastapi-login==1.8.2",
+    "pydantic[email]==1.10.2",
+    "ormar[postgresql,orjson]==0.11.3",
+    "sitri[settings, pyyaml]==2.1.3",
+    "uvicorn[standard]==0.18.3",
+]
+requires-python = ">=3.10,<3.11"
+license = {file = "LICENSE"}
+
+[tool.pdm]
+[tool.pdm.dev-dependencies]
+dev = [
+    "pre-commit==2.20.0",
+]
+
+[tool.interrogate]
+ignore-init-method = true
+ignore-init-module = true
+ignore-magic = false
+ignore-semiprivate = false
+ignore-private = false
+ignore-property-decorators = false
+ignore-module = true
+ignore-nested-functions = false
+ignore-nested-classes = true
+ignore-setters = false
+fail-under = 95
+exclude = ["setup.py", "docs", "build"]
+ignore-regex = ["^get$", "^mock_.*", ".*BaseClass.*"]
+verbose = 0
+quiet = false
+whitelist-regex = []
+color = true
+omit-covered-files = false
+
+[tool.black]
+line-length = 120
+include = '\.pyi?$'
+target-version = ['py310']
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+    | migrations
+  )
+)
+'''
+
+[tool.isort]
+known_first_party = "{{project_name}}"
+line_length = 120
+profile = "black"
+multi_line_output = 3
+include_trailing_comma = true
+use_parentheses = true
+
+[tool.pycln]
+all = true
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+no_site_packages = true
+strict_optional = false
+strict = true
+allow_subclassing_any = true
+allow_untyped_calls = true
+pretty = true
+show_error_codes = true
+implicit_reexport = true
+allow_untyped_decorators = true
+warn_return_any = false
+disable_error_code = ["valid-type", "call-arg"]
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.0.1"
+version_files = [
+    "{{project_name}}/__about__.py"
+]
+style = [
+    ["qmark", "fg:#ff9d00 bold"],
+    ["question", "bold"],
+    ["answer", "fg:#ff9d00 bold"],
+    ["pointer", "fg:#ff9d00 bold"],
+    ["highlighted", "fg:#ff9d00 bold"],
+    ["selected", "fg:#cc5454"],
+    ["separator", "fg:#cc5454"],
+    ["instruction", ""],
+    ["text", ""],
+    ["disabled", "fg:#858585 italic"]
+]
+
+[tool.ward]
+path = ["tests/"]  # supply multiple paths using a list
+capture-output = true  # enable or disable output capturing (e.g. to use debugger)
+order = "random"  # or 'random'
+test-output-style = "test-per-line"  # or 'dots-global', 'dot-module'
+fail-limit = 10  # stop the run if 20 fails occur
+progress-style = ["bar"]  # display a progress bar during the run
+
+[build-system]
+requires = ["pdm-pep517>=1.0.0"]
+build-backend = "pdm.pep517.api"
