@@ -1,8 +1,8 @@
 [project]
-name = "{{ cookiecutter.project.name }}"
-description = "{{ cookiecutter.project.description }}"
+name = "{{ cookiecutter.project_name }}"
+description = "{{ cookiecutter.project_description }}"
 authors = [
-    {name = "{{ cookiecutter.author.name }}", email = "{{ cookiecutter.author.email }}"},
+    {name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.author_email }}"},
 ]
 dependencies = [
     "fastapi==0.85.0",
@@ -20,7 +20,7 @@ license = {file = "LICENSE"}
 dynamic = ["version"]
 
 [tool.pdm]
-version = { source = "file", path = "{{ cookiecutter.project.name }}/__version__.py" }
+version = { source = "file", path = "{{ cookiecutter.project_name }}/__version__.py" }
 
 [tool.pdm.dev-dependencies]
 dev = [
@@ -70,7 +70,7 @@ exclude = '''
 '''
 
 [tool.isort]
-known_first_party = "{{ cookiecutter.project.name }}"
+known_first_party = "{{ cookiecutter.project_name }}"
 line_length = 120
 profile = "black"
 multi_line_output = 3
@@ -99,7 +99,7 @@ disable_error_code = ["valid-type", "call-arg"]
 name = "cz_conventional_commits"
 version = "0.0.1"
 version_files = [
-    "{{ cookiecutter.project.name }}/__about__.py"
+    "{{ cookiecutter.project_name }}/__about__.py"
 ]
 style = [
     ["qmark", "fg:#ff9d00 bold"],

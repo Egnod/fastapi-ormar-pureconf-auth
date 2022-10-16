@@ -19,7 +19,7 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-[project.optional-dependencies]
+[project_optional-dependencies]
 
 [tool.pdm]
 [tool.pdm.dev-dependencies]
@@ -71,7 +71,7 @@ exclude = '''
 '''
 
 [tool.isort]
-known_first_party = "{{ cookiecutter.project.name }}"
+known_first_party = "{{ cookiecutter.project_name }}"
 line_length = 120
 profile = "black"
 multi_line_output = 3

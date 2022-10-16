@@ -14,7 +14,7 @@ repos:
     - --filter-files
     - --magic-placement
     - -b
-    - "{{ cookiecutter.project.name }}"
+    - "{{ cookiecutter.project_name }}"
     id: isort
   repo: https://github.com/pycqa/isort
   rev: 5.10.1
